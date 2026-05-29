@@ -41,6 +41,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
                 UsernamePasswordAuthenticationToken auth =
                         new UsernamePasswordAuthenticationToken(username, null, authorities);
+                SecurityContextHolder.getContext().setAuthentication(auth);
             } catch (Exception e) {
                 // Token nieprawidłowy - punkt 3 (Spring Security automatycznie zwróci 401)
             }
