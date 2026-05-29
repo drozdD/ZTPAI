@@ -34,4 +34,9 @@ public class ProductService {
         return repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Produkt o ID " + id + " nie istnieje."));
     }
+
+    public void deleteProduct(Long id) {
+        Product product = getProductById(id);
+        repository.delete(product);
+    }
 }

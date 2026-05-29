@@ -40,4 +40,9 @@ public class ProductController {
         );
         return ProductMapper.toResponse(product);
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        service.deleteProduct(id);
+    }
 }
